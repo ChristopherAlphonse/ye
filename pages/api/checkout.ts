@@ -31,9 +31,11 @@ export default async function handler(
       apiVersion: "2022-11-15",
     });
 
+    const URL = process.env.APP_URI;
+
     const session = await stripe.checkout.sessions.create({
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: `${URL}/success`,
+      cancel_url: `${URL}/cancel`,
       line_items: body.lineItems,
       mode: "payment",
     });

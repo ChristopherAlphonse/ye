@@ -6,6 +6,10 @@ import CartContext, {
 import { useEffect, useState } from "react";
 
 import type { AppProps } from "next/app";
+import Footer from "../components/Footer";
+import Head from "next/head";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
 import { Stripe } from "stripe";
 import _ from "lodash";
 
@@ -31,9 +35,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <CartContext.Provider value={cartContext}>
-      <Component {...pageProps} />
-    </CartContext.Provider>
+    <>
+      <Head>
+        <title>Pure by Mel</title>
+        <meta
+          name="description"
+          content="We sell fresh, homemade Smoothies drinks. We make one thing and we are good at it."
+        />
+        <link rel="icon" href="/public/favicon.ico" />
+      </Head>
+
+      <CartContext.Provider value={cartContext}>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <Hero />
+
+          <main className="flex-grow">
+            <Component {...pageProps} />
+          </main>
+
+          <Footer />
+        </div>
+      </CartContext.Provider>
+    </>
   );
 }
 

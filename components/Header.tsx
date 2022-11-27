@@ -1,5 +1,5 @@
 import { AiOutlineSearch, AiOutlineShopping } from "react-icons/ai";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   getPriceTotal,
@@ -16,6 +16,12 @@ import Logo from "../public/favicon.ico";
 import { Stripe } from "stripe";
 
 const Header: FunctionComponent = () => {
+  const [bg, setBg] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      return window.scrollY > 50 ? setBg(true) : setBg(false);
+    });
+  });
   const { items, remove } = useContext(CartContext);
   const removeFromCart = (priceID: string) => {
     if (remove) {
@@ -61,8 +67,12 @@ const Header: FunctionComponent = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-transparent z-10 shadow-sm">
-      <nav aria-label="Top" className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <header
+      className={`${
+        bg ? "w-full bg-slate-50 shadow-md h-20 " : "h-24 "
+      }  fixed top-0 w-full dark:text-black text-white  z-10 transition-all duration-300 `}
+    >
+      <nav aria-label="Top" className="max-w-9xl mx-auto sm:px-6 lg:px-8">
         <div className="relative px-4 pb-4 sm:static sm:px-0 sm:pb-0">
           <div className="h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
@@ -76,7 +86,7 @@ const Header: FunctionComponent = () => {
               />
               <span className="hidden sm:inline-block font-bold text-3xl text-rose-500">
                 Puré
-                <span className="italic text-gray-400 text-sm"> by Mel</span>
+                <span className="italic text-gray-500 text-sm"> by Mel</span>
               </span>
             </Link>
 

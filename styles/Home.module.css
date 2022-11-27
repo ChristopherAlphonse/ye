@@ -127,3 +127,32 @@
     filter: invert(1);
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --accent-color: #7fc7eb;
+  --font-face: "Playfair Display SC", serif;
+  --font-face-secondary: "Forum", cursive;
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #575658 #121212;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #353434;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  border: 3px solid #363535;
+}

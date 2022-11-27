@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --accent-color: #f43f5e;
+  --font-face: "Playfair Display SC", serif;
+  --font-face-secondary: "Forum", cursive;
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--accent-color) #121212;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  border: 2px solid #ffffff;
+}
+
+html,
+body {
+  overflow-x: auto;
+}

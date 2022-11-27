@@ -35,7 +35,7 @@ const Hero: FunctionComponent = () => {
           <div className="bg-hero bg-no-repeat bg-cover bg-center bg-fixed h-[100vh] transition-opacity-5 transform scale-110 ease-in-out group-hover:duration-500  max-w-full ">
             <div
               className="grid h-screen place-items-center 
-              mb-4 text-6xl font-extrabold tracking-tight leading-none text-gray-900 lg:text-9xl lg:text-10xl dark:text-white
+              mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 lg:text-9xl lg:text-10xl dark:text-white
             
             "
             >

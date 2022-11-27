@@ -31,7 +31,7 @@ export default async function handler(
       apiVersion: "2022-11-15",
     });
 
-    const URL = process.env.APP_URI;
+    const URL = process.env.NEXT_PUBLIC_HOST;
 
     const session = await stripe.checkout.sessions.create({
       success_url: `${URL}/success`,

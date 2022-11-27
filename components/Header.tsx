@@ -45,16 +45,14 @@ const Header: FunctionComponent = () => {
     const b = await res.json();
     window.location.href = b.session.url;
 
-    const URL = process.env.APP_URI;
+    // const session = await stripe.checkout.sessions.create({
+    //     success_url: 'http://localhost:3000/success',
+    //     cancel_url: 'http://localhost:3000/cancel',
+    //     line_items: lineItems,
+    //     mode: 'payment',
+    // });
 
-    const session = await stripe.checkout.sessions.create({
-      success_url: `${URL}/success`,
-      cancel_url: `${URL}/cancel`,
-      line_items: body.lineItems,
-      mode: "payment",
-    });
-
-    console.log("here");
+    // console.log('here')
   };
 
   const LogoImg = {

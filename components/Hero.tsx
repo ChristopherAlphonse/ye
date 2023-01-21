@@ -1,5 +1,6 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
+import AnimatedText from "react-animated-text-content";
 import { FunctionComponent } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import React from "react";
@@ -11,7 +12,7 @@ const Hero: FunctionComponent = () => {
     setTimeout(() => {
       setLoading(false);
     }, 300);
-  }, []);
+  }, [setLoading]);
 
   return (
     <div className="">
@@ -39,7 +40,25 @@ const Hero: FunctionComponent = () => {
             
             "
             >
-              WELCOME
+              <AnimatedText
+                type="words"
+                animation={{
+                  x: "500px",
+                  y: "-20px",
+                  scale: 1.1,
+                  ease: "ease-in-out",
+                }}
+                animationType="float"
+                interval={6}
+                duration={1}
+                tag="div"
+                className="animated-paragraph"
+                includeWhiteSpaces
+                threshold={0.1}
+                rootMargin="20%"
+              >
+                WELCOME
+              </AnimatedText>
             </div>
           </div>
         </>
